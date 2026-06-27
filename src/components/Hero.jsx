@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-import { FileText, Mail, MapPin, GraduationCap } from "lucide-react";
-
+import {
+  FileText,
+  Mail,
+  MapPin,
+  GraduationCap,
+  ChevronDown,
+} from "lucide-react";
 function GithubIcon() {
   return (
     <svg
@@ -114,6 +119,10 @@ export default function Hero() {
             </a>
           </div>
         </div>
+      </div>
+      <div className="hero__scroll-hint">
+        <span>Scroll down or use the top menu to navigate</span>
+        <ChevronDown size={18} className="hero__scroll-icon" />
       </div>
     </section>
   );

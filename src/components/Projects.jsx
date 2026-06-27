@@ -3,17 +3,36 @@ import { Code2, ExternalLink, Play } from "lucide-react";
 const CDN = (name, variant = "original") =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`;
 
-/* ─── Add / edit projects here ──────────────────────────────────────────────
-   image   →  path in /public, e.g. "/projects/axiom.png"
-   video   →  YouTube / demo URL, or null to hide the overlay and hint
-   tags    →  { name, icon (CDN url or null), invert (bool) }
-   github  →  repo URL, or null to hide the Source Code button
-   live    →  deployed URL, or null to hide the Live Demo button
-   ─────────────────────────────────────────────────────────────────────────── */
 const PROJECTS = [
   {
+    title: "AuTest - Automated App Testing Platform",
+    image: "/autest.jpeg",
+    video: "https://www.loom.com/share/66f133e9bf774eec8cc18a23359ada2d",
+    description:
+      "Built an end-to-end automated mobile testing platform that converts Google Play Store user reviews into runnable Appium test cases. A Node.js scraper with checkpoint-based pagination feeds a fine-tuned DistilBERT classifier that labels reviews as bug reports, feature requests, or usability issues with confidence thresholding to filter uncertain classifications. A fine-tuned Qwen3 LLM then generates structured Given-When-Then test cases covering valid, invalid, and edge case scenarios, which Appium maps to extracted APK view hierarchies and executes on Android emulators with screenshot capture and pass/fail logging. FastAPI backend with MongoDB Atlas across six modular pipeline stages, with scheduling support for automated scraping and test runs, and a React dashboard for APK upload and downloadable execution reports.",
+    tags: [
+      { name: "Next.js", icon: CDN("nextjs", "plain"), invert: true },
+      { name: "JavaScript", icon: CDN("javascript") },
+      { name: "Vercel", icon: CDN("vercel"), invert: true },
+      { name: "React", icon: CDN("react") },
+      { name: "Tailwind CSS", icon: CDN("tailwindcss") },
+      { name: "Python", icon: CDN("python") },
+      { name: "FastAPI", icon: CDN("fastapi") },
+      { name: "MongoDB", icon: CDN("mongodb") },
+      { name: "Node.js", icon: CDN("nodejs") },
+      { name: "React", icon: CDN("react") },
+      { name: "PyTorch", icon: CDN("pytorch") },
+      {
+        name: "Hugging Face",
+        icon: "https://huggingface.co/front/assets/huggingface_logo.svg",
+      },
+    ],
+    github: null,
+    live: null,
+  },
+  {
     title: "AIESEC in Pakistan National Website",
-    image: "/projects/axiom.png",
+    image: "/aip.png",
     video: "https://www.aiesecinpakistan.org/",
     description:
       "Contributed as a backend developer to the national recruitment platform for AIESEC in Pakistan, built with Next.js. Developed and optimized backend features to improve platform performance and scalability, and shipped a bug-free production deployment that now handles 5,000+ user applications per semester across all AIESEC chapters in Pakistan.",
@@ -29,7 +48,7 @@ const PROJECTS = [
   },
   {
     title: "Tradr – Stock Price Forecasting & Sentiment Analysis",
-    image: "/projects/axiom.png",
+    image: "/stock.png",
     video: "https://www.loom.com/share/92c75e840a1141ce89c560c95423e087",
     description:
       "Built a full-stack stock forecasting platform with a dual-model pipeline combining an LSTM neural network across 8 engineered features with Holt-Winters smoothing for seasonality-aware price forecasts and confidence bands. Live candlestick charts support five technical indicator overlays with a 60-day sliding window and early stopping. FastAPI backend with MongoDB Atlas, rate-limited Pydantic-validated endpoints, VADER news sentiment on RSS headlines, and per-ticker model retraining via background tasks.",
@@ -50,7 +69,7 @@ const PROJECTS = [
   },
   {
     title: "NexBoard – Real Time Collaborative Kanban Board",
-    image: "/projects/axiom.png",
+    image: "/kanban.png",
     video: "https://www.loom.com/share/66f133e9bf774eec8cc18a23359ada2d",
     description:
       "Built a real-time collaborative Kanban board where all changes flow through Socket.io rooms so every connected tab or browser updates instantly without polling. Implemented optimistic UI updates with Zustand snapshot rollback so drags feel instant and revert cleanly if the server rejects them. Backend is Node/Express with MongoDB, supporting drag-and-drop reordering across lists, cascade deletes, and a live activity log per board.",
