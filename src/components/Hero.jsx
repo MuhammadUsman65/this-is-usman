@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { FileText, Mail, MapPin, GraduationCap } from "lucide-react";
 
 function GithubIcon() {
@@ -29,10 +30,15 @@ function LinkedinIcon() {
 }
 
 export default function Hero() {
-  return (
-    <section id="home" className="hero">
-      <div className="hero__bg" />
+  const [loaded, setLoaded] = useState(false);
 
+  useEffect(() => {
+    const id = setTimeout(() => setLoaded(true), 60);
+    return () => clearTimeout(id);
+  }, []);
+
+  return (
+    <section id="home" className={`hero${loaded ? " hero--loaded" : ""}`}>
       <div className="hero__inner">
         <div className="hero__photo-wrap">
           <div className="hero__photo-glow" />
@@ -60,7 +66,7 @@ export default function Hero() {
           </div>
 
           <p className="hero__tagline">
-            Software Engineer • AIESEC HR Leader • Full-Stack Developer
+            Software Engineer • Full-Stack Developer • xAIESEC HR Head
           </p>
 
           <div className="hero__links">
@@ -95,7 +101,6 @@ export default function Hero() {
                 <span className="hero__callout-text">Resume</span>
               </span>
             </a>
-
             <a
               href="mailto:usmanrafique992@gmail.com"
               className="hero__link hero__link--labeled"

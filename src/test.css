@@ -10,37 +10,6 @@
   --photo-glow: rgba(29, 78, 216, 0.45);
 }
 
-/* ===== GLOBAL FIXED BACKGROUND ===== */
-body {
-  background-color: var(--bg);
-  background-image:
-    linear-gradient(rgba(4, 8, 30, 0.68), rgba(4, 8, 30, 0.68)), url("/bg.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-/* background-attachment: fixed is broken on iOS Safari */
-@media (max-width: 768px) {
-  body {
-    background-attachment: scroll;
-  }
-}
-
-/* ===== SCROLL REVEAL ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
@@ -74,6 +43,7 @@ body {
   overflow-x: auto;
   scrollbar-width: none;
 }
+
 .navbar__links::-webkit-scrollbar {
   display: none;
 }
@@ -108,9 +78,11 @@ body {
 .navbar__link:hover {
   color: var(--text);
 }
+
 .navbar__link--active {
   color: var(--heading);
 }
+
 .navbar__link--active::after {
   transform: scaleX(1);
 }
@@ -136,6 +108,7 @@ body {
   transition: all 0.2s ease;
   font-family: inherit;
 }
+
 .navbar__btn:hover {
   color: var(--heading);
   border-color: rgba(82, 148, 255, 0.5);
@@ -152,6 +125,7 @@ body {
   overflow: hidden;
 }
 
+/* blurred + dimmed background image */
 .hero__bg {
   position: absolute;
   inset: -12px;
@@ -162,6 +136,7 @@ body {
   z-index: 0;
 }
 
+/* blue-tinted overlay on top of the blurred bg */
 .hero::before {
   content: "";
   position: absolute;
@@ -214,6 +189,7 @@ body {
   min-width: 0;
 }
 
+/* tight above the name */
 .hero__greeting {
   display: block;
   font-size: 1.25rem;
@@ -248,6 +224,7 @@ body {
   align-items: center;
   gap: 0.3rem;
 }
+
 .hero__sep {
   color: var(--heading);
 }
@@ -276,6 +253,7 @@ body {
   color: var(--text-muted);
   transition: all 0.2s ease;
 }
+
 .hero__link:hover {
   color: var(--heading);
   border-color: rgba(82, 148, 255, 0.5);
@@ -286,10 +264,11 @@ body {
 /* ===== SECTIONS ===== */
 .section {
   padding: 96px 2rem;
-  background: rgba(6, 9, 26, 0.88);
+  background: var(--bg);
 }
+
 .section--alt {
-  background: rgba(9, 14, 34, 0.91);
+  background: var(--bg-alt);
 }
 
 .section__container {
@@ -306,6 +285,7 @@ body {
   padding-bottom: 1rem;
   display: inline-block;
 }
+
 .section__title::after {
   content: "";
   position: absolute;
@@ -326,152 +306,6 @@ body {
   text-align: center;
 }
 
-/* ===== ABOUT ===== */
-.about {
-  max-width: 780px;
-}
-
-.about__text {
-  color: var(--text);
-  font-size: 1.0625rem;
-  line-height: 1.85;
-  margin-bottom: 1.125rem;
-}
-.about__text:last-child {
-  margin-bottom: 0;
-}
-
-.about__kw {
-  color: var(--heading);
-  font-weight: 650;
-}
-
-/* ===== SKILLS ===== */
-.skills__tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.skills__tab {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.45rem 1.2rem;
-  border-radius: 100px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 0.2s ease;
-}
-.skills__tab:hover {
-  color: var(--text);
-  border-color: rgba(82, 148, 255, 0.4);
-}
-.skills__tab--active {
-  background: var(--heading);
-  border-color: var(--heading);
-  color: #fff;
-}
-
-/* Marquee container — clips overflow and fades out the edges */
-.skills__marquee {
-  overflow: hidden;
-  padding: 0.75rem 0 1rem;
-  /* Soft edge fade on both sides */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 8%,
-    black 92%,
-    transparent 100%
-  );
-}
-
-/* Scrolling track */
-.skills__track {
-  display: flex;
-  gap: 0.75rem;
-  /* width: max-content lets the flex row exceed the container width */
-  width: max-content;
-  will-change: transform;
-  animation: marquee 30s linear infinite;
-  /* animationDuration is overridden per-tab via inline style */
-}
-
-/* Pause the ticker only while a skill pill is being hovered */
-.skills__track:has(.skill-card:hover) {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* Individual skill pill */
-.skill-card {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.6rem 1.1rem;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  background: rgba(82, 148, 255, 0.04);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 0;
-  cursor: default;
-  user-select: none;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-.skill-card:hover {
-  background: rgba(82, 148, 255, 0.16);
-  border-color: rgba(82, 148, 255, 0.55);
-  color: var(--text);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(82, 148, 255, 0.18);
-}
-
-.skill-card__icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: block;
-  pointer-events: none;
-}
-/* Express, Next.js, Flask have black logos — lighten them for dark backgrounds */
-.skill-card__icon--invert {
-  filter: brightness(0) invert(0.75);
-}
-
-.skill-card__name {
-  line-height: 1;
-}
-
-/* ===== CALLOUT LABELS (hero resume / email) ===== */
 .hero__link--labeled {
   position: relative;
 }
@@ -489,6 +323,7 @@ body {
   animation: callout-float 3s ease-in-out infinite;
 }
 
+/* Vertical line with upward arrowhead pointing at the icon */
 .hero__callout-line {
   position: relative;
   width: 1.5px;
@@ -500,6 +335,7 @@ body {
   );
   border-radius: 1px;
 }
+
 .hero__callout-line::before {
   content: "";
   position: absolute;
@@ -532,8 +368,8 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 6px;
-  animation: callout-float-right 3s ease-in-out infinite;
 }
+
 .hero__callout--right .hero__callout-line {
   width: 12px;
   height: 1.5px;
@@ -543,6 +379,7 @@ body {
     rgba(147, 210, 255, 0.2)
   );
 }
+
 .hero__callout--right .hero__callout-line::before {
   top: 50%;
   left: -4px;
@@ -553,15 +390,10 @@ body {
   border-left: none;
 }
 
-@keyframes callout-float {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0px);
-  }
-  50% {
-    transform: translateX(-50%) translateY(4px);
-  }
+.hero__callout--right {
+  animation: callout-float-right 3s ease-in-out infinite;
 }
+
 @keyframes callout-float-right {
   0%,
   100% {
@@ -569,6 +401,16 @@ body {
   }
   50% {
     transform: translateY(-50%) translateX(4px);
+  }
+}
+
+@keyframes callout-float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(4px);
   }
 }
 
@@ -590,6 +432,7 @@ body {
     width: 150px;
     height: 150px;
   }
+
   .hero__photo-glow {
     inset: -16px;
   }
@@ -598,23 +441,28 @@ body {
     font-size: 0.7rem;
     margin-bottom: 0.1rem;
   }
+
   .hero__name {
     font-size: clamp(2rem, 9vw, 2.75rem);
     margin-bottom: 0.6rem;
   }
+
   .hero__meta {
     justify-content: center;
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
   }
+
   .hero__tagline {
     font-size: 0.875rem;
     margin-bottom: 1rem;
   }
+
   .hero__links {
     justify-content: center;
     gap: 0.5rem;
   }
+
   .hero__link {
     width: 34px;
     height: 34px;
@@ -623,6 +471,7 @@ body {
   .navbar {
     padding: 0 1rem;
   }
+
   .navbar__link {
     padding: 0.5rem 0.5rem;
     font-size: 0.75rem;
@@ -630,22 +479,5 @@ body {
 
   .section {
     padding: 72px 1.25rem;
-  }
-
-  .skills__marquee {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 4%,
-      black 96%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 4%,
-      black 96%,
-      transparent 100%
-    );
   }
 }
