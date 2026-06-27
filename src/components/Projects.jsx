@@ -12,22 +12,59 @@ const CDN = (name, variant = "original") =>
    ─────────────────────────────────────────────────────────────────────────── */
 const PROJECTS = [
   {
-    title: "Axiom – RAG Conversational AI Tutor",
+    title: "AIESEC in Pakistan National Website",
     image: "/projects/axiom.png",
-    video: null, // e.g. "https://youtu.be/..."
+    video: "https://www.aiesecinpakistan.org/",
     description:
-      "Designed a Retrieval-Augmented Generation (RAG) AI tutor with a dual-LLM pipeline for complex domain reasoning. Built document ingestion with MMR retrieval using local embeddings. Deployed containerised backend on Hugging Face with Upstash Redis IP-hashed rate limiting.",
+      "Contributed as a backend developer to the national recruitment platform for AIESEC in Pakistan, built with Next.js. Developed and optimized backend features to improve platform performance and scalability, and shipped a bug-free production deployment that now handles 5,000+ user applications per semester across all AIESEC chapters in Pakistan.",
     tags: [
-      { name: "FastAPI", icon: CDN("fastapi") },
-      { name: "LangChain", icon: null },
-      { name: "Docker", icon: CDN("docker") },
-      { name: "ChromaDB", icon: null },
-      { name: "Redis", icon: CDN("redis") },
+      { name: "Next.js", icon: CDN("nextjs", "plain"), invert: true },
+      { name: "JavaScript", icon: CDN("javascript") },
+      { name: "Vercel", icon: CDN("vercel"), invert: true },
+      { name: "React", icon: CDN("react") },
+      { name: "Tailwind CSS", icon: CDN("tailwindcss") },
     ],
-    github: "https://github.com/MuhammadUsman65",
+    github: null,
+    live: "https://www.aiesecinpakistan.org/",
+  },
+  {
+    title: "Tradr – Stock Price Forecasting & Sentiment Analysis",
+    image: "/projects/axiom.png",
+    video: "https://www.loom.com/share/92c75e840a1141ce89c560c95423e087",
+    description:
+      "Built a full-stack stock forecasting platform with a dual-model pipeline combining an LSTM neural network across 8 engineered features with Holt-Winters smoothing for seasonality-aware price forecasts and confidence bands. Live candlestick charts support five technical indicator overlays with a 60-day sliding window and early stopping. FastAPI backend with MongoDB Atlas, rate-limited Pydantic-validated endpoints, VADER news sentiment on RSS headlines, and per-ticker model retraining via background tasks.",
+    tags: [
+      { name: "Python", icon: CDN("python") },
+      { name: "FastAPI", icon: CDN("fastapi") },
+      { name: "TensorFlow", icon: CDN("tensorflow") },
+      { name: "Scikit-learn", icon: CDN("scikitlearn") },
+      { name: "NumPy", icon: CDN("numpy") },
+      { name: "Pandas", icon: CDN("pandas"), invert: true },
+      { name: "MongoDB", icon: CDN("mongodb") },
+      { name: "Next.js", icon: CDN("nextjs", "plain"), invert: true },
+      { name: "React", icon: CDN("react") },
+      { name: "Tailwind CSS", icon: CDN("tailwindcss") },
+    ],
+    github: "https://github.com/MuhammadUsman65/stock.git",
     live: null,
   },
-  // Add more projects below ↓
+  {
+    title: "NexBoard – Real Time Collaborative Kanban Board",
+    image: "/projects/axiom.png",
+    video: "https://www.loom.com/share/66f133e9bf774eec8cc18a23359ada2d",
+    description:
+      "Built a real-time collaborative Kanban board where all changes flow through Socket.io rooms so every connected tab or browser updates instantly without polling. Implemented optimistic UI updates with Zustand snapshot rollback so drags feel instant and revert cleanly if the server rejects them. Backend is Node/Express with MongoDB, supporting drag-and-drop reordering across lists, cascade deletes, and a live activity log per board.",
+    tags: [
+      { name: "React", icon: CDN("react") },
+      { name: "Vite", icon: CDN("vite") },
+      { name: "Node.js", icon: CDN("nodejs") },
+      { name: "Express", icon: CDN("express"), invert: true },
+      { name: "MongoDB", icon: CDN("mongodb") },
+      { name: "Socket.io", icon: CDN("socketio"), invert: true },
+    ],
+    github: "https://github.com/MuhammadUsman65/KanBan.git",
+    live: null,
+  },
 ];
 
 function ProjectCard({ project }) {

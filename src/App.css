@@ -870,6 +870,43 @@ body {
 }
 
 /* ===== VOLUNTEER EXPERIENCE ===== */
+/* Smaller volunteer cards */
+/* .volunteer-list .entry-card {
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+} */
+
+/* Smaller logos */
+.volunteer-list .entry-card__logo {
+  width: 200px;
+  height: 200px;
+}
+
+/* Smaller organization headings */
+.volunteer-list .entry-card__company {
+  font-size: 1.5rem;
+}
+
+/* Move the heading slightly upward */
+.volunteer-list .vol-org__toggle {
+  margin-bottom: 0;
+}
+
+/* More compact role spacing */
+.volunteer-list .vol-role__toggle {
+  padding: 0.45rem 0;
+}
+
+.volunteer-list .entry-card__logo {
+  width: 180px;
+  height: 180px;
+}
+
+.volunteer-list .entry-card {
+  grid-template-columns: 200px 1fr;
+  padding: 1.25rem 0;
+}
 .vol-org__toggle {
   display: flex;
   align-items: center;
@@ -1136,4 +1173,46 @@ body {
   background: rgba(82, 148, 255, 0.12);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(82, 148, 255, 0.18);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .project-card__media {
+    order: 1;
+    width: 100%;
+  }
+
+  .project-card__content {
+    order: 2;
+    width: 100%;
+  }
+
+  .project-card__image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .project-card__title {
+    font-size: 1.8rem;
+  }
+
+  .project-card__description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .project-card__tech {
+    flex-wrap: wrap;
+  }
+
+  .project-card__actions {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
 }
