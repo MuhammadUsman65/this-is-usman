@@ -19,7 +19,7 @@ const TABS = {
     { name: "Node.js", icon: CDN("nodejs") },
     { name: "Express.js", icon: CDN("express"), invert: true },
     { name: "MongoDB", icon: CDN("mongodb") },
-    { name: "Next.js", icon: CDN("nextjs", "plain") },
+    { name: "Next.js", icon: CDN("nextjs", "plain"), invert: true },
     { name: "MySQL", icon: CDN("mysql") },
     { name: "Flask", icon: CDN("flask"), invert: true },
     { name: "Django", icon: CDN("django", "plain"), invert: true },

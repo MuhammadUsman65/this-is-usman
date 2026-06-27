@@ -1,16 +1,20 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
+import TechExperience from "./components/TechExperience";
+import Education from "./components/Education";
+
 import "./App.css";
 
 const SECTIONS = [
   { id: "about", title: "About Me", alt: false },
+  { id: "education", title: "Education", alt: false },
   { id: "skills", title: "Skills", alt: true },
   { id: "tech-experience", title: "Technical Experience", alt: false },
   { id: "volunteer-experience", title: "Volunteer Experience", alt: true },
-  { id: "education", title: "Education", alt: false },
   { id: "projects", title: "Projects", alt: true },
 ];
 
@@ -18,6 +22,8 @@ const SECTIONS = [
 const SECTION_CONTENT = {
   about: <AboutMe />,
   skills: <Skills />,
+  "tech-experience": <TechExperience />,
+  education: <Education />,
 };
 
 function App() {

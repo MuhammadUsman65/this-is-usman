@@ -4,11 +4,11 @@ import { ArrowUp } from "lucide-react";
 const NAV_ITEMS = [
   { label: "Home", id: "home" },
   { label: "About Me", id: "about" },
+  { label: "Education", id: "education" },
   { label: "Skills", id: "skills" },
   { label: "Technical Experience", id: "tech-experience" },
-  { label: "Volunteer Experience", id: "volunteer-experience" },
-  { label: "Education", id: "education" },
   { label: "Projects", id: "projects" },
+  { label: "Volunteer Experience", id: "volunteer-experience" },
 ];
 
 export default function Navbar() {
