@@ -6,6 +6,8 @@ import AboutMe from "./components/AboutMe";
 import Skills from "./components/Skills";
 import TechExperience from "./components/TechExperience";
 import Education from "./components/Education";
+import VolunteerExperience from "./components/VolunteerExperience";
+import Projects from "./components/Projects";
 
 import "./App.css";
 
@@ -14,8 +16,8 @@ const SECTIONS = [
   { id: "education", title: "Education", alt: false },
   { id: "skills", title: "Skills", alt: true },
   { id: "tech-experience", title: "Technical Experience", alt: false },
-  { id: "volunteer-experience", title: "Volunteer Experience", alt: true },
   { id: "projects", title: "Projects", alt: true },
+  { id: "volunteer-experience", title: "Volunteer Experience", alt: true },
 ];
 
 // Add new section components here as you build them out
@@ -24,6 +26,8 @@ const SECTION_CONTENT = {
   skills: <Skills />,
   "tech-experience": <TechExperience />,
   education: <Education />,
+  projects: <Projects />,
+  "volunteer-experience": <VolunteerExperience />,
 };
 
 function App() {
