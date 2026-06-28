@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     title: "AuTest - Automated App Testing Platform",
     image: "/autest.jpeg",
-    video: "https://www.loom.com/share/66f133e9bf774eec8cc18a23359ada2d",
+    video: "https://www.loom.com/share/113dade9059b46ea96c62bc2ccb4ff34",
     description:
       "Built an end-to-end automated mobile testing platform that converts Google Play Store user reviews into runnable Appium test cases. A Node.js scraper with checkpoint-based pagination feeds a fine-tuned DistilBERT classifier that labels reviews as bug reports, feature requests, or usability issues with confidence thresholding to filter uncertain classifications. A fine-tuned Qwen3 LLM then generates structured Given-When-Then test cases covering valid, invalid, and edge case scenarios, which Appium maps to extracted APK view hierarchies and executes on Android emulators with screenshot capture and pass/fail logging. FastAPI backend with MongoDB Atlas across six modular pipeline stages, with scheduling support for automated scraping and test runs, and a React dashboard for APK upload and downloadable execution reports.",
     tags: [

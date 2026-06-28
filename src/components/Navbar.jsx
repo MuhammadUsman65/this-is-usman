@@ -41,7 +41,10 @@ export default function Navbar() {
           if (e.isIntersecting) setActive(e.target.id);
         });
       },
-      { threshold: 0.25, rootMargin: "-60px 0px -55% 0px" },
+      {
+        threshold: 0.1,
+        rootMargin: "-80px 0px -35% 0px",
+      },
     );
     sectionEls.forEach((el) => sectionObserver.observe(el));
 

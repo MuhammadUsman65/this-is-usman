@@ -508,7 +508,7 @@ body::before {
   /* width: max-content lets the flex row exceed the container width */
   width: max-content;
   will-change: transform;
-  animation: marquee 30s linear infinite;
+  animation: marquee 5s linear infinite;
   /* animationDuration is overridden per-tab via inline style */
 }
 
@@ -862,6 +862,13 @@ body::before {
   color: var(--heading);
   font-weight: 700;
   margin-right: 0.35rem;
+}
+
+/* Hide the back-to-top button on tablets and phones */
+@media (max-width: 768px) {
+  .navbar__actions {
+    display: none;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
