@@ -93,6 +93,50 @@ body::before {
     box-shadow 0.3s ease;
 }
 
+/* Wraps the scrollable links strip so the hint can be positioned over it */
+.navbar__links-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Right-edge gradient fade + chevron */
+.navbar__scroll-hint {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  background: linear-gradient(to right, transparent, var(--bg) 65%);
+  color: var(--heading);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.navbar__scroll-hint--visible {
+  opacity: 1;
+}
+
+/* Chevron pulses horizontally to draw attention */
+.navbar__scroll-chevron {
+  animation: hint-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hint-pulse {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
 .navbar--scrolled {
   background: rgba(6, 9, 26, 0.98);
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
@@ -321,9 +365,10 @@ body::before {
   align-items: center;
   gap: 6px;
   padding-bottom: 2rem;
-  color: #aaa;
+  color: var(--text-muted);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
+  z-index: 11111;
 }
 
 .hero__scroll-icon {
@@ -651,6 +696,13 @@ body::before {
 .entry-card:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.entry-card__description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
 }
 
 /* ── Logo ── */
